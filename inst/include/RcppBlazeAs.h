@@ -122,8 +122,8 @@ namespace Rcpp {
     public:
       Exporter(SEXP x) : vec(x) {}
       blaze::CustomVector<Type,blaze::unaligned,blaze::padded,TF> get() {
-        size_t paddedSize = (size_t) vec.size() + blaze::IntrinsicTrait<Type>::size -
-          (size_t) vec.size() % blaze::IntrinsicTrait<Type>::size;
+        size_t paddedSize = (size_t) vec.size() + blaze::SIMDTrait<Type>::size -
+          (size_t) vec.size() % blaze::SIMDTrait<Type>::size;
         blaze::CustomVector<Type,blaze::unaligned,blaze::padded,TF> result(
             new Type[paddedSize], (size_t) vec.size(), paddedSize, blaze::ArrayDelete() );
         for( size_t i=0UL; i<(size_t)vec.size(); ++i )
@@ -141,8 +141,8 @@ namespace Rcpp {
     public:
       Exporter(SEXP x) : vec(x) {}
       blaze::CustomVector<Type,blaze::aligned,blaze::padded,TF> get() {
-        size_t paddedSize = (size_t) vec.size() + blaze::IntrinsicTrait<Type>::size -
-          (size_t) vec.size() % blaze::IntrinsicTrait<Type>::size;
+        size_t paddedSize = (size_t) vec.size() + blaze::SIMDTrait<Type>::size -
+          (size_t) vec.size() % blaze::SIMDTrait<Type>::size;
         blaze::CustomVector<Type,blaze::aligned,blaze::padded,TF> result(
             blaze::allocate<Type>(paddedSize), (size_t) vec.size(), paddedSize, blaze::Deallocate() );
         for( size_t i=0UL; i<(size_t)vec.size(); ++i )
@@ -309,8 +309,8 @@ namespace Rcpp {
       Exporter(SEXP x) : mat(x) {}
       blaze::CustomMatrix<Type,blaze::aligned, blaze::unpadded,SO> get() {
         if( SO == blaze::rowMajor ) {
-          size_t actualCols = (size_t) mat.ncol() + blaze::IntrinsicTrait<Type>::size -
-            (size_t) mat.ncol() % blaze::IntrinsicTrait<Type>::size;
+          size_t actualCols = (size_t) mat.ncol() + blaze::SIMDTrait<Type>::size -
+            (size_t) mat.ncol() % blaze::SIMDTrait<Type>::size;
           blaze::CustomMatrix<Type,blaze::aligned, blaze::unpadded,SO> result(
               blaze::allocate<Type>( actualCols * (size_t)mat.nrow() ), (size_t) mat.nrow(),
               (size_t) mat.ncol(), actualCols, blaze::Deallocate() );
@@ -320,8 +320,8 @@ namespace Rcpp {
           }
           return result;
         } else {
-          size_t actualRows = (size_t) mat.nrow() + blaze::IntrinsicTrait<Type>::size -
-            (size_t) mat.nrow() % blaze::IntrinsicTrait<Type>::size;
+          size_t actualRows = (size_t) mat.nrow() + blaze::SIMDTrait<Type>::size -
+            (size_t) mat.nrow() % blaze::SIMDTrait<Type>::size;
           blaze::CustomMatrix<Type,blaze::aligned, blaze::unpadded,SO> result(
               blaze::allocate<Type>( actualRows * (size_t)mat.ncol() ), (size_t) mat.nrow(),
               (size_t) mat.ncol(), actualRows, blaze::Deallocate() );
@@ -344,8 +344,8 @@ namespace Rcpp {
       Exporter(SEXP x) : mat(x) {}
       blaze::CustomMatrix<Type,blaze::unaligned, blaze::padded,SO> get() {
         if( SO == blaze::rowMajor ) {
-          size_t actualCols = (size_t) mat.ncol() + blaze::IntrinsicTrait<Type>::size -
-            (size_t) mat.ncol() % blaze::IntrinsicTrait<Type>::size;
+          size_t actualCols = (size_t) mat.ncol() + blaze::SIMDTrait<Type>::size -
+            (size_t) mat.ncol() % blaze::SIMDTrait<Type>::size;
           blaze::CustomMatrix<Type,blaze::unaligned, blaze::padded,SO> result(
               new Type[ actualCols * (size_t)mat.nrow() ], (size_t) mat.nrow(),
               (size_t) mat.ncol(), actualCols, blaze::ArrayDelete() );
@@ -355,8 +355,8 @@ namespace Rcpp {
           }
           return result;
         } else {
-          size_t actualRows = (size_t) mat.nrow() + blaze::IntrinsicTrait<Type>::size -
-            (size_t) mat.nrow() % blaze::IntrinsicTrait<Type>::size;
+          size_t actualRows = (size_t) mat.nrow() + blaze::SIMDTrait<Type>::size -
+            (size_t) mat.nrow() % blaze::SIMDTrait<Type>::size;
           blaze::CustomMatrix<Type,blaze::unaligned, blaze::padded,SO> result(
               new Type[ actualRows * (size_t)mat.ncol() ], (size_t) mat.nrow(),
               (size_t) mat.ncol(), actualRows, blaze::ArrayDelete() );
@@ -379,8 +379,8 @@ namespace Rcpp {
       Exporter(SEXP x) : mat(x) {}
       blaze::CustomMatrix<Type,blaze::aligned, blaze::padded,SO> get() {
         if( SO == blaze::rowMajor ) {
-          size_t actualCols = (size_t) mat.ncol() + blaze::IntrinsicTrait<Type>::size -
-            (size_t) mat.ncol() % blaze::IntrinsicTrait<Type>::size;
+          size_t actualCols = (size_t) mat.ncol() + blaze::SIMDTrait<Type>::size -
+            (size_t) mat.ncol() % blaze::SIMDTrait<Type>::size;
           blaze::CustomMatrix<Type,blaze::aligned, blaze::padded,SO> result(
               blaze::allocate<Type>( actualCols * (size_t)mat.nrow() ), (size_t) mat.nrow(),
               (size_t) mat.ncol(), actualCols, blaze::Deallocate() );
@@ -390,8 +390,8 @@ namespace Rcpp {
           }
           return result;
         } else {
-          size_t actualRows = (size_t) mat.nrow() + blaze::IntrinsicTrait<Type>::size -
-            (size_t) mat.nrow() % blaze::IntrinsicTrait<Type>::size;
+          size_t actualRows = (size_t) mat.nrow() + blaze::SIMDTrait<Type>::size -
+            (size_t) mat.nrow() % blaze::SIMDTrait<Type>::size;
           blaze::CustomMatrix<Type,blaze::aligned, blaze::padded,SO> result(
               blaze::allocate<Type>( actualRows * (size_t)mat.ncol() ), (size_t) mat.nrow(),
               (size_t) mat.ncol(), actualRows, blaze::Deallocate() );

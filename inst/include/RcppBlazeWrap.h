@@ -316,43 +316,23 @@ namespace Rcpp {
   };
 
   template< typename MT, bool SO, bool SF >
-  SEXP wrap( const blaze::DenseColumn<MT,SO,SF>& dc ){
+  SEXP wrap( const blaze::Column<MT,SO,SF>& dc ){
     return RcppBlaze::blaze_wrap( dc ) ;
   };
 
   template< typename MT, bool SO, bool SF >
-  SEXP wrap( const blaze::DenseRow<MT,SO,SF>& dr ){
+  SEXP wrap( const blaze::Row<MT,SO,SF>& dr ){
     return RcppBlaze::blaze_wrap( dr ) ;
   };
 
   template< typename MT, bool SO, bool SF >
-  SEXP wrap( const blaze::DenseSubmatrix<MT,SO,SF>& dsm ){
+  SEXP wrap( const blaze::Submatrix<MT,SO,SF>& dsm ){
     return RcppBlaze::blaze_wrap( dsm ) ;
   };
 
   template< typename MT, bool SO, bool SF >
-  SEXP wrap( const blaze::DenseSubvector<MT,SO,SF>& dsv ){
+  SEXP wrap( const blaze::Subvector<MT,SO,SF>& dsv ){
     return RcppBlaze::blaze_wrap( dsv ) ;
-  };
-
-  template< typename MT, bool SO, bool SF >
-  SEXP wrap( const blaze::SparseColumn<MT,SO,SF>& sc ){
-    return RcppBlaze::blaze_wrap( sc ) ;
-  };
-
-  template< typename MT, bool SO, bool SF >
-  SEXP wrap( const blaze::SparseRow<MT,SO,SF>& sr ){
-    return RcppBlaze::blaze_wrap( sr ) ;
-  };
-
-  template< typename MT, bool SO, bool SF >
-  SEXP wrap( const blaze::SparseSubmatrix<MT,SO,SF>& ssm ){
-    return RcppBlaze::blaze_wrap( ssm ) ;
-  };
-
-  template< typename MT, bool SO, bool SF >
-  SEXP wrap( const blaze::SparseSubvector<MT,SO,SF>& ssv ){
-    return RcppBlaze::blaze_wrap( ssv ) ;
   };
 
   template< typename MT, bool SO, bool DF >
@@ -406,8 +386,8 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename VT1, typename VT2 >
-  SEXP wrap( const blaze::DVecDVecCrossExpr< VT1, VT2 >& x ){
+  template< typename VT1, typename VT2, bool TF >
+  SEXP wrap( const blaze::DVecDVecCrossExpr< VT1, VT2, TF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -426,8 +406,8 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename VT1, typename VT2 >
-  SEXP wrap( const blaze::DVecSVecCrossExpr< VT1, VT2 >& x ){
+  template< typename VT1, typename VT2, bool TF >
+  SEXP wrap( const blaze::DVecSVecCrossExpr< VT1, VT2, TF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -436,8 +416,8 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename VT1, typename VT2 >
-  SEXP wrap( const blaze::SVecDVecCrossExpr< VT1, VT2 >& x ){
+  template< typename VT1, typename VT2, bool TF >
+  SEXP wrap( const blaze::SVecDVecCrossExpr< VT1, VT2, TF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -446,8 +426,8 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename VT1, typename VT2 >
-  SEXP wrap( const blaze::SVecSVecCrossExpr< VT1, VT2 >& x ){
+  template< typename VT1, typename VT2, bool TF >
+  SEXP wrap( const blaze::SVecSVecCrossExpr< VT1, VT2, TF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -476,34 +456,14 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename VT1, typename VT2 >
-  SEXP wrap( const blaze::DVecTDVecMultExpr< VT1, VT2 >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename VT1, typename VT2 >
-  SEXP wrap( const blaze::DVecTSVecMultExpr< VT1, VT2 >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename VT1, typename VT2 >
-  SEXP wrap( const blaze::SVecTDVecMultExpr< VT1, VT2 >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename VT1, typename VT2 >
-  SEXP wrap( const blaze::SVecTSVecMultExpr< VT1, VT2 >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
   // Operations of Matrix to Matrix
   template< typename MT1, typename MT2, bool SO >
   SEXP wrap( const blaze::DMatDMatAddExpr< MT1, MT2, SO >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename MT1, typename MT2 >
-  SEXP wrap( const blaze::DMatDMatMultExpr< MT1, MT2 >& x ){
+  template< typename MT1, typename MT2, bool SF, bool HF, bool LF, bool UF >
+  SEXP wrap( const blaze::DMatDMatMultExpr< MT1, MT2, SF, HF, LF, UF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -517,8 +477,8 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename MT1, typename MT2 >
-  SEXP wrap( const blaze::DMatSMatMultExpr< MT1, MT2 >& x ){
+  template< typename MT1, typename MT2, bool SF, bool HF, bool LF, bool UF >
+  SEXP wrap( const blaze::DMatSMatMultExpr< MT1, MT2, SF, HF, LF, UF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -532,8 +492,8 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename MT1, typename MT2 >
-  SEXP wrap( const blaze::DMatTDMatMultExpr< MT1, MT2 >& x ){
+  template< typename MT1, typename MT2, bool SF, bool HF, bool LF, bool UF >
+  SEXP wrap( const blaze::DMatTDMatMultExpr< MT1, MT2, SF, HF, LF, UF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -547,8 +507,8 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename MT1, typename MT2 >
-  SEXP wrap( const blaze::DMatTSMatMultExpr< MT1, MT2 >& x ){
+  template< typename MT1, typename MT2, bool SF, bool HF, bool LF, bool UF >
+  SEXP wrap( const blaze::DMatTSMatMultExpr< MT1, MT2, SF, HF, LF, UF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -557,8 +517,8 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename MT1, typename MT2 >
-  SEXP wrap( const blaze::SMatDMatMultExpr< MT1, MT2 >& x ){
+  template< typename MT1, typename MT2, bool SF, bool HF, bool LF, bool UF >
+  SEXP wrap( const blaze::SMatDMatMultExpr< MT1, MT2, SF, HF, LF, UF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -567,8 +527,8 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename MT1, typename MT2 >
-  SEXP wrap( const blaze::SMatTDMatMultExpr< MT1, MT2 >& x ){
+  template< typename MT1, typename MT2, bool SF, bool HF, bool LF, bool UF >
+  SEXP wrap( const blaze::SMatTDMatMultExpr< MT1, MT2, SF, HF, LF, UF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -577,8 +537,8 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename MT1, typename MT2 >
-  SEXP wrap( const blaze::TDMatDMatMultExpr< MT1, MT2 >& x ){
+  template< typename MT1, typename MT2, bool SF, bool HF, bool LF, bool UF >
+  SEXP wrap( const blaze::TDMatDMatMultExpr< MT1, MT2, SF, HF, LF, UF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -587,8 +547,8 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename MT1, typename MT2 >
-  SEXP wrap( const blaze::TDMatSMatMultExpr< MT1, MT2 >& x ){
+  template< typename MT1, typename MT2, bool SF, bool HF, bool LF, bool UF >
+  SEXP wrap( const blaze::TDMatSMatMultExpr< MT1, MT2, SF, HF, LF, UF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -597,18 +557,18 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename MT1, typename MT2 >
-  SEXP wrap( const blaze::TDMatTDMatMultExpr< MT1, MT2 >& x ){
+  template< typename MT1, typename MT2, bool SF, bool HF, bool LF, bool UF >
+  SEXP wrap( const blaze::TDMatTDMatMultExpr< MT1, MT2, SF, HF, LF, UF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename MT1, typename MT2 >
-  SEXP wrap( const blaze::TDMatTSMatMultExpr< MT1, MT2 >& x ){
+  template< typename MT1, typename MT2, bool SF, bool HF, bool LF, bool UF >
+  SEXP wrap( const blaze::TDMatTSMatMultExpr< MT1, MT2, SF, HF, LF, UF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename MT1, typename MT2 >
-  SEXP wrap( const blaze::TSMatDMatMultExpr< MT1, MT2 >& x ){
+  template< typename MT1, typename MT2, bool SF, bool HF, bool LF, bool UF >
+  SEXP wrap( const blaze::TSMatDMatMultExpr< MT1, MT2, SF, HF, LF, UF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -617,8 +577,8 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
-  template< typename MT1, typename MT2 >
-  SEXP wrap( const blaze::TSMatTDMatMultExpr< MT1, MT2 >& x ){
+  template< typename MT1, typename MT2, bool SF, bool HF, bool LF, bool UF >
+  SEXP wrap( const blaze::TSMatTDMatMultExpr< MT1, MT2, SF, HF, LF, UF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -756,27 +716,7 @@ namespace Rcpp {
 
   // Operations of Vectors or Matrices
   template< typename VT, bool TF >
-  SEXP wrap( const blaze::DVecAbsExpr< VT, TF >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename VT, bool TF >
-  SEXP wrap( const blaze::DVecConjExpr< VT, TF >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename VT, bool TF >
   SEXP wrap( const blaze::DVecEvalExpr< VT, TF >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename VT, bool TF >
-  SEXP wrap( const blaze::DVecImagExpr< VT, TF >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename VT, bool TF >
-  SEXP wrap( const blaze::DVecRealExpr< VT, TF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -796,27 +736,7 @@ namespace Rcpp {
   };
 
   template< typename VT, bool TF >
-  SEXP wrap( const blaze::SVecAbsExpr< VT, TF >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename VT, bool TF >
-  SEXP wrap( const blaze::SVecConjExpr< VT, TF >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename VT, bool TF >
   SEXP wrap( const blaze::SVecEvalExpr< VT, TF >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename VT, bool TF >
-  SEXP wrap( const blaze::SVecImagExpr< VT, TF >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename VT, bool TF >
-  SEXP wrap( const blaze::SVecRealExpr< VT, TF >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -836,32 +756,12 @@ namespace Rcpp {
   };
 
   template< typename MT, bool SO >
-  SEXP wrap( const blaze::DMatAbsExpr< MT, SO >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename MT, bool SO >
-  SEXP wrap( const blaze::DMatConjExpr< MT, SO >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename MT, bool SO >
   SEXP wrap( const blaze::DMatEvalExpr< MT, SO >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
   template< typename MT, bool SO >
-  SEXP wrap( const blaze::DMatImagExpr< MT, SO >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename MT, bool SO >
   SEXP wrap( const blaze::DMatInvExpr< MT, SO >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename MT, bool SO >
-  SEXP wrap( const blaze::DMatRealExpr< MT, SO >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 
@@ -886,27 +786,7 @@ namespace Rcpp {
   };
 
   template< typename MT, bool SO >
-  SEXP wrap( const blaze::SMatAbsExpr< MT, SO >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename MT, bool SO >
-  SEXP wrap( const blaze::SMatConjExpr< MT, SO >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename MT, bool SO >
   SEXP wrap( const blaze::SMatEvalExpr< MT, SO >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename MT, bool SO >
-  SEXP wrap( const blaze::SMatImagExpr< MT, SO >& x ){
-    return RcppBlaze::blaze_wrap( x ) ;
-  };
-
-  template< typename MT, bool SO >
-  SEXP wrap( const blaze::SMatRealExpr< MT, SO >& x ){
     return RcppBlaze::blaze_wrap( x ) ;
   };
 

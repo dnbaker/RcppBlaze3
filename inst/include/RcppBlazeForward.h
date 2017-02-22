@@ -66,15 +66,10 @@ namespace Rcpp {
   template< typename MT, bool SO, bool DF > SEXP wrap( const blaze::UniLowerMatrix<MT,SO,DF>& );
   template< typename MT, bool SO, bool DF > SEXP wrap( const blaze::UniUpperMatrix<MT,SO,DF>& );
 
-  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::DenseColumn<MT,SO,SF>& );
-  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::DenseRow<MT,SO,SF>& );
-  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::DenseSubmatrix<MT,SO,SF>& );
-  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::DenseSubvector<MT,SO,SF>& );
-
-  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::SparseColumn<MT,SO,SF>& );
-  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::SparseRow<MT,SO,SF>& );
-  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::SparseSubmatrix<MT,SO,SF>& );
-  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::SparseSubvector<MT,SO,SF>& );
+  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::Column<MT,SO,SF>& );
+  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::Row<MT,SO,SF>& );
+  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::Submatrix<MT,SO,SF>& );
+  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::Subvector<MT,SO,SF>& );
 
   namespace traits {
 

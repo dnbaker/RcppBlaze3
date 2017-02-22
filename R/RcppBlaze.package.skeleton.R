@@ -114,14 +114,14 @@ RcppBlaze.package.skeleton <- function(name = "anRpackage",
   DESCRIPTION <- file.path(root, "DESCRIPTION")
   if (file.exists(DESCRIPTION)) {
     x <- cbind(read.dcf(DESCRIPTION),
-               "Imports" = sprintf("Rcpp (>= %s), BH (>= %s), RcppBlaze (>= %s)",
+               "Imports" = sprintf("Rcpp (>= %s), BH (>= %s), RcppBlaze3 (>= %s)",
                                    packageDescription("Rcpp")[["Version"]],
                                    packageDescription("BH")[["Version"]],
-                                   packageDescription("RcppBlaze")[["Version"]]),
-               "LinkingTo" = "Rcpp, BH, RcppBlaze")
+                                   packageDescription("RcppBlaze3")[["Version"]]),
+               "LinkingTo" = "Rcpp, BH, RcppBlaze3")
     write.dcf(x, file = DESCRIPTION)
-    message(" >> added Imports: Rcpp, BH, RcppBlaze")
-    message(" >> added LinkingTo: Rcpp, BH, RcppBlaze")
+    message(" >> added Imports: Rcpp, BH, RcppBlaze3")
+    message(" >> added LinkingTo: Rcpp, BH, RcppBlaze3")
   }
 
   ## add a useDynLib to NAMESPACE,
@@ -130,7 +130,7 @@ RcppBlaze.package.skeleton <- function(name = "anRpackage",
   if (! grepl("useDynLib", lines)) {
     lines <- c(sprintf("useDynLib(%s)", name),
                "import(BH)",
-               "import(RcppBlaze)",
+               "import(RcppBlaze3)",
                "importFrom(Rcpp, evalCpp)",        ## ensures Rcpp instantiation
                lines)
     writeLines(lines, con = NAMESPACE)
@@ -146,17 +146,17 @@ RcppBlaze.package.skeleton <- function(name = "anRpackage",
   if (!file.exists(man)) {
     dir.create(man)
   }
-  skeleton <- system.file("skeleton", package = "RcppBlaze")
+  skeleton <- system.file("skeleton", package = "RcppBlaze3")
   Makevars <- file.path(src, "Makevars")
   if (!file.exists(Makevars)) {
     file.copy(file.path(skeleton, "Makevars"), Makevars)
-    message(" >> added Makevars file with RcppBlaze settings")
+    message(" >> added Makevars file with RcppBlaze3 settings")
   }
 
   Makevars.win <- file.path(src, "Makevars.win")
   if (!file.exists(Makevars.win)) {
     file.copy(file.path(skeleton, "Makevars.win"), Makevars.win)
-    message(" >> added Makevars.win file with RcppBlaze settings")
+    message(" >> added Makevars.win file with RcppBlaze3 settings")
   }
 
   if (example_code) {

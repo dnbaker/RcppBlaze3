@@ -20,30 +20,30 @@
 #' print(flm)
 #' @export
 fastLmPure <- function(X, y, type) {
-    .Call('RcppBlaze_fastLmPure', PACKAGE = 'RcppBlaze', X, y, type)
+    .Call('RcppBlaze3_fastLmPure', PACKAGE = 'RcppBlaze3', X, y, type)
 }
 
 blaze_version <- function(single) {
-    .Call('RcppBlaze_blaze_version', PACKAGE = 'RcppBlaze', single)
+    .Call('RcppBlaze3_blaze_version', PACKAGE = 'RcppBlaze3', single)
 }
 
 Blaze_SSE <- function() {
-    .Call('RcppBlaze_Blaze_SSE', PACKAGE = 'RcppBlaze')
+    .Call('RcppBlaze3_Blaze_SSE', PACKAGE = 'RcppBlaze3')
 }
 
 Blaze_AVX <- function() {
-    .Call('RcppBlaze_Blaze_AVX', PACKAGE = 'RcppBlaze')
+    .Call('RcppBlaze3_Blaze_AVX', PACKAGE = 'RcppBlaze3')
 }
 
 Blaze_AVX2 <- function() {
-    .Call('RcppBlaze_Blaze_AVX2', PACKAGE = 'RcppBlaze')
+    .Call('RcppBlaze3_Blaze_AVX2', PACKAGE = 'RcppBlaze3')
 }
 
 Blaze_MIC <- function() {
-    .Call('RcppBlaze_Blaze_MIC', PACKAGE = 'RcppBlaze')
+    .Call('RcppBlaze3_Blaze_MIC', PACKAGE = 'RcppBlaze3')
 }
 
 Blaze_FMA <- function() {
-    .Call('RcppBlaze_Blaze_FMA', PACKAGE = 'RcppBlaze')
+    .Call('RcppBlaze3_Blaze_FMA', PACKAGE = 'RcppBlaze3')
 }
 
