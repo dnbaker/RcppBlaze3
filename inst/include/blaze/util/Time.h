@@ -48,6 +48,11 @@
 #  include <winsock.h>
 #  include <time.h>
 #  include <sys/timeb.h>
+#elif defined(__MINGW32__)
+#  include <windows.h>
+#  include <winsock.h>
+#  include <time.h>
+#  include <sys/timeb.h>
 #else
 #  include <sys/resource.h>
 #  include <sys/time.h>

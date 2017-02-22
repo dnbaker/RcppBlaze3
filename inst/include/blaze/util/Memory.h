@@ -81,10 +81,16 @@ inline byte_t* allocate_backend( size_t size, size_t alignment )
    void* raw( nullptr );
 
 #if defined(_MSC_VER)
-   raw = _aligned_malloc( size, alignment );
-   if( raw == nullptr ) {
+  raw = _aligned_malloc( size, alignment );
+  if( raw == NULL ) {
+#elif defined(__MINGW32__)
+  raw = __mingw_aligned_malloc( size, alignment );
+  if( raw == NULL ) {
+#elif ( defined(_POSIX_ADVISORY_INFO) && (_POSIX_ADVISORY_INFO >= 200112L) )
+  if( posix_memalign( &raw, alignment, size ) ) {
 #else
-   if( posix_memalign( &raw, alignment, size ) ) {
+  raw = (void*) malloc( size );
+  if( raw == NULL ) {
 #endif
       BLAZE_THROW_BAD_ALLOC;
    }
@@ -109,9 +115,11 @@ inline byte_t* allocate_backend( size_t size, size_t alignment )
 inline void deallocate_backend( const void* address ) noexcept
 {
 #if defined(_MSC_VER)
-   _aligned_free( const_cast<void*>( address ) );
+  _aligned_free( const_cast<void*>( address ) );
+#elif defined(__MINGW32__)
+  __mingw_aligned_free( const_cast<void*>( address ) );
 #else
-   free( const_cast<void*>( address ) );
+  free( const_cast<void*>( address ) );
 #endif
 }
 /*! \endcond */
