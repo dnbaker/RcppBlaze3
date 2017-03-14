@@ -4,15 +4,15 @@
 //
 // This file is based rcppeigen_hello_world.cpp and
 // rcpparma_hello_world.cpp from RcppArmadillo and RcppEigen.
-// This file is part of RcppBlaze.
+// This file is part of RcppBlaze3.
 
-// we only include RcppBlaze.h which pulls Rcpp.h in for us
-#include "RcppBlaze.h"
+// we only include RcppBlaze3.h which pulls Rcpp.h in for us
+#include <RcppBlaze3.h>
 
 // via the depends attribute we tell Rcpp to create hooks for
-// RcppBlaze so that the build process will know what to do
+// RcppBlaze3 so that the build process will know what to do
 //
-// [[Rcpp::depends(RcppBlaze)]]
+// [[Rcpp::depends(RcppBlaze3)]]
 
 // simple example of creating two matrices and
 // returning the result of an operatioon on them

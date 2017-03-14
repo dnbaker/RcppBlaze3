@@ -1,5 +1,5 @@
-// [[Rcpp::depends(RcppBlaze)]]
-#include <RcppBlaze.h>
+// [[Rcpp::depends(RcppBlaze3)]]
+#include <RcppBlaze3.h>
 
 // [[Rcpp::export]]
 blaze::StaticVector<double, 3UL> test_StaticVector_dbl_len3( blaze::StaticVector<double, 3UL> x ) {

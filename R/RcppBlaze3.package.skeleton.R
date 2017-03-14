@@ -6,25 +6,25 @@
 ## RcppArmadillo.package.skeleton.Rd, RcppEigen.package.skeleton.R
 ## and RcppEigen.package.skeleton.Rd from RcppArmadillo and RcppEigen.
 ##
-## This file is part of RcppBlaze.
+## This file is part of RcppBlaze3.
 ##
-## RcppBlaze is free software: you can redistribute it and/or modify it
+## RcppBlaze3 is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
 ## the Free Software Foundation, either version 2 of the License, or
 ## (at your option) any later version.
 ##
-## RcppBlaze is distributed in the hope that it will be useful, but
+## RcppBlaze3 is distributed in the hope that it will be useful, but
 ## WITHOUT ANY WARRANTY; without even the implied warranty of
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ## GNU General Public License for more details.
 ##
 ## You should have received a copy of the GNU General Public License
-## along with RcppBlaze  If not, see <http://www.gnu.org/licenses/>.
+## along with RcppBlaze3  If not, see <http://www.gnu.org/licenses/>.
 
-#' Create a skeleton for a new package that intends to use RcppBlaze
+#' Create a skeleton for a new package that intends to use RcppBlaze3
 #'
-#' \code{RcppBlaze.package.skeleton} automates the creation of
-#' a new source package that intends to use features of RcppBlaze.
+#' \code{RcppBlaze3.package.skeleton} automates the creation of
+#' a new source package that intends to use features of RcppBlaze3.
 #' It is based on the \link[utils]{package.skeleton} function
 #' which it executes first.
 #'
@@ -50,7 +50,7 @@
 #' eventually by removed from the generated package.
 #'
 #' @param name,list,environment,path,force,code_files see \link[utils]{package.skeleton}.
-#' @param example_code If TRUE, example c++ code using RcppBlaze is added to the package.
+#' @param example_code If TRUE, example c++ code using RcppBlaze3 is added to the package.
 #' @return Nothing, used for its side effects.
 #' @references
 #' Read the \emph{Writing R Extensions} manual for more details.
@@ -61,11 +61,11 @@
 #' @seealso \link[utils]{package.skeleton}
 #' @examples
 #' \dontrun{
-#' RcppBlaze.package.skeleton( "foobar" )
+#' RcppBlaze3.package.skeleton( "foobar" )
 #' }
 #' @importFrom utils package.skeleton packageDescription
 #' @export
-RcppBlaze.package.skeleton <- function(name = "anRpackage",
+RcppBlaze3.package.skeleton <- function(name = "anRpackage",
                                        list = character(),
                                        environment = .GlobalEnv,
                                        path = ".",
@@ -105,7 +105,7 @@ RcppBlaze.package.skeleton <- function(name = "anRpackage",
              stop(paste("error while calling `", skelFunName, "`", sep=""))
            })
 
-  message("\nAdding RcppBlaze settings")
+  message("\nAdding RcppBlaze3 settings")
 
   ## now pick things up
   root <- file.path(path, name)
@@ -160,9 +160,9 @@ RcppBlaze.package.skeleton <- function(name = "anRpackage",
   }
 
   if (example_code) {
-    file.copy(file.path(skeleton, "rcppblaze_hello_world.cpp"), src)
+    file.copy(file.path(skeleton, "rcppblaze3_hello_world.cpp"), src)
     message(" >> added example src file using Blaze classes")
-    file.copy(file.path(skeleton, "rcppblaze_hello_world.Rd"), man)
+    file.copy(file.path(skeleton, "rcppblaze3_hello_world.Rd"), man)
     message(" >> added example Rd file for using Blaze classes")
 
     Rcpp::compileAttributes(root)

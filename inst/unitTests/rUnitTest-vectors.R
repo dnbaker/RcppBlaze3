@@ -19,7 +19,7 @@ cppFile <- "test-vectors.cpp"
 if (file.exists(file.path("cpp", cppFile))) {
   sourceCpp(file.path( "cpp", cppFile))
 } else {
-  sourceCpp(system.file("unitTests", "cpp", cppFile, package = "RcppBlaze"))
+  sourceCpp(system.file("unitTests", "cpp", cppFile, package = "RcppBlaze3"))
 }
 
 testVectors <- function(){

@@ -3,24 +3,24 @@
 // Copyright (C)  2011         Douglas Bates, Dirk Eddelbuettel and Romain Francois
 //
 // This file is based on fastLm.cpp and fastLm.h from RcppArmadillo and RcppEigen.
-// This file is part of RcppBlaze.
+// This file is part of RcppBlaze3.
 //
-// fastLm.cpp: lm model written RcppBlaze
+// fastLm.cpp: lm model written RcppBlaze3
 //
-// RcppBlaze is free software: you can redistribute it and/or modify it
+// RcppBlaze3 is free software: you can redistribute it and/or modify it
 // under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 2 of the License, or
 // (at your option) any later version.
 //
-// RcppBlaze is distributed in the hope that it will be useful, but
+// RcppBlaze3 is distributed in the hope that it will be useful, but
 // WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with RcppBlaze.  If not, see <http://www.gnu.org/licenses/>.
+// along with RcppBlaze3.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <RcppBlaze.h>
+#include <RcppBlaze3.h>
 
 using Rcpp::List;
 using Rcpp::_;
@@ -101,9 +101,9 @@ Rcpp::List LLTSolver(const blaze::DynamicMatrix<double> &X, const blaze::Dynamic
                       _["fitted.values"] = fitted );
 }
 
-//' linear model fitting function based on RcppBlaze
+//' linear model fitting function based on RcppBlaze3
 //'
-//' \code{fastLmPure} provides the estimates of the linear model based on \code{RcppBlaze}.
+//' \code{fastLmPure} provides the estimates of the linear model based on \code{RcppBlaze3}.
 //'
 //' \code{fastLm} estimates the linear model using the \code{solve}.
 //'

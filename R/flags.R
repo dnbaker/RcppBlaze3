@@ -23,12 +23,12 @@ LdFlags <- function() {}
 #' @importFrom Rcpp Rcpp.plugin.maker
 inlineCxxPlugin <-  function() {
   getSettings <- Rcpp.plugin.maker(
-    include.before = "#include <RcppBlaze.h>",
+    include.before = "#include <RcppBlaze3.h>",
     libs = "$(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS) $(SHLIB_OPENMP_CXXFLAGS)",
     package = c("BH", "RcppBlaze3")
   )
   settings <- getSettings()
-  settings$env$PKG_CXXFLAGS <- "$(SHLIB_OPENMP_CXXFLAGS) -std=c++14"
+  settings$env$PKG_CXXFLAGS <- "$(SHLIB_OPENMP_CXXFLAGS) $(CXX1YSTD)"
   settings$env$PKG_LIBS <- paste(settings$env$PKG_LIBS, LdFlags())
   return(settings)
 }

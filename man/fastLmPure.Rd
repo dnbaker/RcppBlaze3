@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{fastLmPure}
 \alias{fastLmPure}
-\title{linear model fitting function based on RcppBlaze}
+\title{linear model fitting function based on RcppBlaze3}
 \usage{
 fastLmPure(X, y, type)
 }
@@ -19,7 +19,7 @@ A list containing coefficients, standard errors, rank of model matrix,
   fitted values.
 }
 \description{
-\code{fastLmPure} provides the estimates of the linear model based on \code{RcppBlaze}.
+\code{fastLmPure} provides the estimates of the linear model based on \code{RcppBlaze3}.
 }
 \details{
 \code{fastLm} estimates the linear model using the \code{solve}.
@@ -30,4 +30,3 @@ data(trees, package="datasets")
 flm <- fastLmPure(cbind(1, log(trees$Girth)), log(trees$Volume), 0)
 print(flm)
 }
-

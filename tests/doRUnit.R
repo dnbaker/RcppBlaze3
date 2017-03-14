@@ -4,20 +4,20 @@
 ## Copyright (C) 2017 Chingchuan Chen
 ##
 ## This file is based on doUnit.R from RcppArmadillo and RcppEigen.
-## This file is part of RcppBlaze.
+## This file is part of RcppBlaze3.
 ##
-## RcppBlaze is free software: you can redistribute it and/or modify it
+## RcppBlaze3 is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
 ## the Free Software Foundation, either version 2 of the License, or
 ## (at your option) any later version.
 ##
-## RcppBlaze is distributed in the hope that it will be useful, but
+## RcppBlaze3 is distributed in the hope that it will be useful, but
 ## WITHOUT ANY WARRANTY; without even the implied warranty of
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ## GNU General Public License for more details.
 ##
 ## You should have received a copy of the GNU General Public License
-## along with RcppBlaze.  If not, see <http://www.gnu.org/licenses/>.
+## along with RcppBlaze3.  If not, see <http://www.gnu.org/licenses/>.
 
 ## doRUnit.R --- Run RUnit tests
 ##
@@ -32,7 +32,7 @@
 ## Dirk Eddelbuettel, Feb - June 2014
 
 if (require("RUnit", quietly = TRUE)) {
-  pkg <- "RcppBlaze"
+  pkg <- "RcppBlaze3"
   require(pkg, character.only = TRUE)
   path <- system.file("unitTests", package = pkg)
   stopifnot(file.exists(path), file.info(path.expand(path))$isdir)

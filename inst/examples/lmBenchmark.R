@@ -7,7 +7,7 @@
 
 require("stats", character=TRUE, quietly=TRUE)
 require("microbenchmark", character=TRUE, quietly=TRUE)
-require("RcppBlaze", character=TRUE, quietly=TRUE)
+require("RcppBlaze3", character=TRUE, quietly=TRUE)
 
 ## define different versions of lm
 exprs <- list()
@@ -15,9 +15,9 @@ exprs <- list()
 # default version used in lm()
 exprs$lm.fit <- expression(stats::lm.fit(mm, y))
 
-exprs$blaze_qr <- expression(.Call('RcppBlaze_fastLmPure', PACKAGE = 'RcppBlaze', mm, y, 0L))
-exprs$blaze_ldlt <- expression(.Call('RcppBlaze_fastLmPure', PACKAGE = 'RcppBlaze', mm, y, 1L))
-exprs$blaze_llt <- expression(.Call('RcppBlaze_fastLmPure', PACKAGE = 'RcppBlaze', mm, y, 2L))
+exprs$blaze3_qr <- expression(.Call('RcppBlaze3_fastLmPure', PACKAGE = 'RcppBlaze3', mm, y, 0L))
+exprs$blaze3_ldlt <- expression(.Call('RcppBlaze3_fastLmPure', PACKAGE = 'RcppBlaze3', mm, y, 1L))
+exprs$blaze3_llt <- expression(.Call('RcppBlaze3_fastLmPure', PACKAGE = 'RcppBlaze3', mm, y, 2L))
 
 if (suppressMessages(require("RcppEigen", character = TRUE, quietly = TRUE))) {
   # versions from RcppEigen
@@ -134,9 +134,9 @@ print(do_bench())
 ## Unit: milliseconds
 ##           expr         min          lq        mean      median          uq        max neval
 ##         lm.fit  115.051560  120.155425  128.755254  127.093843  132.403677  183.90210    20
-##       blaze_qr  106.871918  112.214372  116.391643  113.883625  119.122072  133.05420    20
-##     blaze_ldlt   42.476913   43.073899   45.385867   44.110764   47.243592   53.39617    20
-##      blaze_llt   42.067316   42.787768   48.667232   44.640606   48.425277  106.40351    20
+##       blaze3_qr  106.871918  112.214372  116.391643  113.883625  119.122072  133.05420    20
+##     blaze3_ldlt   42.476913   43.073899   45.385867   44.110764   47.243592   53.39617    20
+##      blaze3_llt   42.067316   42.787768   48.667232   44.640606   48.425277  106.40351    20
 ##    eigen_PivQR  116.095153  117.692579  124.490097  121.240856  125.342379  184.68326    20
 ##     eigen_LDLt   20.843782   21.379182   23.853525   22.242114   27.287612   31.50733    20
 ##      eigen_SVD  905.852198  913.107176  925.425030  916.658670  935.456956  958.27382    20
@@ -176,14 +176,14 @@ sessionInfo()
 # RcppGSL 0.3.0, RcppArmadillo 0.7.600.1.0 and RcppEigen 0.3.2.9.0
 # and CPU is i7-3770K@4.2GHz.
 
-.Call("RcppBlaze_blaze_version", FALSE, PACKAGE = "RcppBlaze")
+.Call("RcppBlaze3_blaze_version", FALSE, PACKAGE = "RcppBlaze3")
 
-.Call("RcppBlaze_Blaze_SSE", PACKAGE = "RcppBlaze")
+.Call("RcppBlaze3_Blaze_SSE", PACKAGE = "RcppBlaze3")
 
-.Call("RcppBlaze_Blaze_AVX", PACKAGE = "RcppBlaze")
+.Call("RcppBlaze3_Blaze_AVX", PACKAGE = "RcppBlaze3")
 
-.Call("RcppBlaze_Blaze_AVX2", PACKAGE = "RcppBlaze")
+.Call("RcppBlaze3_Blaze_AVX2", PACKAGE = "RcppBlaze3")
 
-.Call("RcppBlaze_Blaze_MIC", PACKAGE = "RcppBlaze")
+.Call("RcppBlaze3_Blaze_MIC", PACKAGE = "RcppBlaze3")
 
-.Call("RcppBlaze_Blaze_FMA", PACKAGE = "RcppBlaze")
+.Call("RcppBlaze3_Blaze_FMA", PACKAGE = "RcppBlaze3")

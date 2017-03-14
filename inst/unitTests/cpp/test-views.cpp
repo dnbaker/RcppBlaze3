@@ -1,5 +1,5 @@
-// [[Rcpp::depends(RcppBlaze)]]
-#include <RcppBlaze.h>
+// [[Rcpp::depends(RcppBlaze3)]]
+#include <RcppBlaze3.h>
 
 // [[Rcpp::export]]
 blaze::DenseColumn< blaze::DynamicMatrix<double> > test_column_dbl(blaze::DynamicMatrix<double> x, int idx) {

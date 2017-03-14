@@ -1,5 +1,5 @@
-//[[Rcpp::depends(RcppBlaze)]]
-#include <RcppBlaze.h>
+//[[Rcpp::depends(RcppBlaze3)]]
+#include <RcppBlaze3.h>
 
 // [[Rcpp::export]]
 blaze::DiagonalMatrix< blaze::DynamicMatrix<double> > test_diag_matrix_dbl(blaze::DynamicMatrix<double> x) {

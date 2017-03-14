@@ -1,5 +1,5 @@
-// [[Rcpp::depends(RcppBlaze)]]
-#include <RcppBlaze.h>
+// [[Rcpp::depends(RcppBlaze3)]]
+#include <RcppBlaze3.h>
 
 // [[Rcpp::export]]
 blaze::StaticMatrix< double,4UL,4UL > test_StaticMatrix_dbl_dim44( blaze::StaticMatrix< double,4UL,4UL > x ) {

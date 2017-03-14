@@ -18,7 +18,7 @@
 # This script is modified from 'inst/unitTests/runTests.R' in Rcpp, RcppArmadillo and RcppEigen.
 require(Rcpp)
 require(Matrix)
-pkg <- "RcppBlaze"
+pkg <- "RcppBlaze3"
 
 if (require("RUnit", quietly = TRUE)) {
 
