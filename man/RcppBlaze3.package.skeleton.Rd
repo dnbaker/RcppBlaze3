@@ -59,3 +59,4 @@ see the \emph{R Installation and Administration} manual,
 \seealso{
 \link[utils]{package.skeleton}
 }
+

@@ -15,7 +15,6 @@
 ## You should have received a copy of the GNU General Public License
 ## along with RcppBlaze  If not, see <http://www.gnu.org/licenses/>.
 
-## FIXME
 cppFile <- "test-views.cpp"
 if (file.exists(file.path("cpp", cppFile))) {
   sourceCpp(file.path( "cpp", cppFile))
