@@ -66,12 +66,12 @@
 #' @importFrom utils package.skeleton packageDescription
 #' @export
 RcppBlaze3.package.skeleton <- function(name = "anRpackage",
-                                       list = character(),
-                                       environment = .GlobalEnv,
-                                       path = ".",
-                                       force = FALSE,
-                                       code_files = character(),
-                                       example_code = TRUE) {
+                                        list = character(),
+                                        environment = .GlobalEnv,
+                                        path = ".",
+                                        force = FALSE,
+                                        code_files = character(),
+                                        example_code = TRUE) {
 
   env <- parent.frame(1)
 

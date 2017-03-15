@@ -1,5 +1,5 @@
 language: R
-sudo: false
+sudo: required
 
 r_build_args: --no-build-vignettes --no-manual --no-resave-data
 r_check_args: --no-build-vignettes --no-manual
@@ -10,21 +10,35 @@ repos:
 
 matrix:
   include:
-  - r: release
-  - r: oldrel
-  - r: devel
-  - os: osx
-  - os: linux
+    - r: release
+    - r: oldrel
+    - r: devel
+    - os: osx
+    - os: linux
   allow_failures:
-  - os: osx
+    - r: oldrel
+    - os: osx
 
 addons:
  apt:
    sources:
-   - ubuntu-toolchain-r-test
+     - ubuntu-toolchain-r-test
    packages:
-   - gcc-4.9
-   - g++-4.9
+     - gcc-6
+     - g++-6
+     - gfortran-6
+   env:
+     - _R_CHECK_CRAN_INCOMING_=FALSE
+
+before_install:
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 100; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran-6 100; fi
+  - g++ --version
+  - gfortran --version
+  - mkdir -p ~/.R
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then echo "Q1hYMVk9ZysrDQpDWFgxWVNURD0tc3RkPWdudSsrMTQNCkNYWDFZRkxBR1M9LU8yIC1XYWxsICQoREVCVUdGTEFHKSAtbXR1bmU9Y29yZTINClNITElCX0NYWDFZTEQ9JChDWFgxWCkNClNITElCX0NYWDFZTERGTEFHUz0tc2hhcmVkDQpDWFgxWVBJQ0ZMQUdTPS1mcGljDQo=" | base64 -d > ~/.R/Makevars; fi
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then echo "Q1hYMVk9ZysrDQpDWFgxWVNURD0tc3RkPWdudSsrMTQNCkNYWDFZRkxBR1M9LU8yIC1XYWxsICQoREVCVUdGTEFHKSAtbXR1bmU9Y29yZTINClNITElCX0NYWDFZTEQ9JChDWFgxWCkNClNITElCX0NYWDFZTERGTEFHUz0tc2hhcmVkDQpDWFgxWVBJQ0ZMQUdTPS1mcGljDQo=" | base64 --decode > ~/.R/Makevars; fi
+  - cat ~/.R/Makevars
 
 notifications:
   email:
