@@ -34,6 +34,17 @@
 #include <blaze/Blaze.h>
 #include <blaze/system/Version.h>
 
+#ifdef RCPPBLAZE_USE_RCPPLAPACKE
+#undef BLAZE_BLAS_MODE
+#define BLAZE_BLAS_MODE 1
+#undef BLAZE_USE_BLAS_MATRIX_VECTOR_MULTIPLICATION
+#define BLAZE_USE_BLAS_MATRIX_VECTOR_MULTIPLICATION 1
+#undef BLAZE_BLAS_IS_PARALLEL
+#define BLAZE_BLAS_IS_PARALLEL 1
+#undef BLAZE_BLAS_INCLUDE_FILE
+#define BLAZE_BLAS_INCLUDE_FILE <RcppBLAS.h>
+#endif
+
 /* forward declarations */
 namespace Rcpp {
   /* support for wrap */
