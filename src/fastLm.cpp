@@ -42,10 +42,9 @@ Rcpp::List QRsolver(const blaze::DynamicMatrix<double> &X, const blaze::DynamicV
   DynamicVector<double> resid  = y - fitted;
   double s = std::sqrt( ( resid, resid ) / ( (double)X.rows() - (double)R.rows() ) );
 
-  DynamicVector<double> se = blaze::sqrt(blaze::diagonal(XTXinv)) * s;
   DynamicVector<double> se( S.rows() );
   for( size_t i=0UL; i<S.rows(); ++i )
-    se[i] = blz::l2Norm(row(S, i)) * s;
+    se[i] = blaze::l2Norm(row(S, i)) * s;
 
   return List::create(_["coefficients"]  = coef,
                       _["se"]            = se,
@@ -64,7 +63,7 @@ Rcpp::List LDLTSolver(const blaze::DynamicMatrix<double> &X, const blaze::Dynami
 
   DynamicVector<double> fitted = X * coef;
   DynamicVector<double> resid  = y - fitted;
-  const double s = std::sqrt( blz::sqrNorm(resid) / ( (double)X.rows() - (double)XTXinv.columns() ) );
+  const double s = std::sqrt( blaze::sqrNorm(resid) / ( (double)X.rows() - (double)XTXinv.columns() ) );
 
   DynamicVector<double> se = blaze::sqrt(blaze::diagonal(XTXinv)) * s;
 
