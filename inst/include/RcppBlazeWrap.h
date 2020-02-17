@@ -280,7 +280,7 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( dv ) ;
   };
 
-  template< typename Type, bool AF, bool PF, bool TF >
+  template< typename Type, blaze::AlignmentFlag AF, bool PF, bool TF >
   SEXP wrap( const blaze::CustomVector<Type,AF,PF,TF>& cv ){
     return RcppBlaze::blaze_wrap( cv ) ;
   };
@@ -305,7 +305,7 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( dm ) ;
   };
 
-  template< typename Type, bool AF, bool PF, bool SO >
+  template< typename Type, blaze::AlignmentFlag AF, bool PF, bool SO >
   SEXP wrap( const blaze::CustomMatrix<Type,AF,PF,SO>& cm ){
     return RcppBlaze::blaze_wrap( cm ) ;
   };
@@ -325,12 +325,12 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( dr ) ;
   };
 
-  template< typename MT, bool SO, bool SF >
+  template< typename MT, blaze::AlignmentFlag SO, bool SF >
   SEXP wrap( const blaze::Submatrix<MT,SO,SF>& dsm ){
     return RcppBlaze::blaze_wrap( dsm ) ;
   };
 
-  template< typename MT, bool SO, bool SF >
+  template< typename MT, blaze::AlignmentFlag SO, bool SF >
   SEXP wrap( const blaze::Subvector<MT,SO,SF>& dsv ){
     return RcppBlaze::blaze_wrap( dsv ) ;
   };

@@ -57,14 +57,14 @@ namespace Rcpp {
   template< typename Type, size_t N, bool TF > SEXP wrap( const blaze::StaticVector<Type,N,TF>& );
   template< typename Type, size_t N, bool TF > SEXP wrap( const blaze::HybridVector<Type,N,TF>& );
   template< typename Type, bool TF > SEXP wrap( const blaze::DynamicVector<Type,TF>& );
-  template< typename Type, bool AF, bool PF, bool TF > SEXP wrap( const blaze::CustomVector<Type,AF,PF,TF>& );
+  template< typename Type, blaze::AlignmentFlag AF, bool PF, bool TF > SEXP wrap( const blaze::CustomVector<Type,AF,PF,TF>& );
   template< typename Type, bool TF > SEXP wrap( const blaze::CompressedVector<Type,TF>& );
 
   template< typename Type, size_t M, size_t N, bool SO > SEXP wrap( const blaze::StaticMatrix<Type,M,N,SO>& );
   template< typename Type, size_t M, size_t N, bool SO > SEXP wrap( const blaze::HybridMatrix<Type,M,N,SO>& );
   template< typename Type, bool SO > SEXP wrap( const blaze::DynamicMatrix<Type,SO>& );
   template< typename Type, bool SO > SEXP wrap( const blaze::DynamicMatrix<Type,SO>& );
-  template< typename Type, bool AF, bool PF, bool SO > SEXP wrap( const blaze::CustomMatrix<Type,AF,PF,SO>& );
+  template< typename Type, blaze::AlignmentFlag AF, bool PF, bool SO > SEXP wrap( const blaze::CustomMatrix<Type,AF,PF,SO>& );
   template< typename Type, bool SO > SEXP wrap( const blaze::CompressedMatrix<Type,SO>& );
 
   template< typename MT, bool SO, bool DF > SEXP wrap( const blaze::DiagonalMatrix<MT,SO,DF>& );
@@ -79,8 +79,8 @@ namespace Rcpp {
 
   template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::Column<MT,SO,SF>& );
   template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::Row<MT,SO,SF>& );
-  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::Submatrix<MT,SO,SF>& );
-  template< typename MT, bool SO, bool SF > SEXP wrap( const blaze::Subvector<MT,SO,SF>& );
+  template< typename MT, blaze::AlignmentFlag SO, bool SF > SEXP wrap( const blaze::Submatrix<MT,SO,SF>& );
+  template< typename MT, blaze::AlignmentFlag SO, bool SF > SEXP wrap( const blaze::Subvector<MT,SO,SF>& );
 
   namespace traits {
 
