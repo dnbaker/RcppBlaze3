@@ -31,7 +31,7 @@
 #include <Rcpp/XPtr.h>
 #include <RcppCommon.h>
 #include <Rconfig.h>
-#include <blaze/Blaze.h>
+#include <blaze/Math.h>
 #include <blaze/system/Version.h>
 
 #ifdef RCPPBLAZE_USE_RCPPLAPACKE
