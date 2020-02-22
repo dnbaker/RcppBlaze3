@@ -99,12 +99,30 @@ if (suppressMessages(require("RcppArmadillo", character = TRUE, quietly = TRUE))
     return List::create(_["coefficients"] = coef,
                         _["stderr"]       = se,
                         _["df.residual"]  = df);
+  }
+
+  // [[Rcpp::export]]
+  List Armadillo_fastLm(const arma::mat& X, const arma::colvec& y) {
+    int n = X.n_rows, k = X.n_cols;
+        
+    arma::colvec coef = arma::solve(X, y);    // fit model y ~ X
+    arma::colvec res  = y - X*coef;           // residuals
+
+    // std.errors of coefficients
+    double s2 = std::inner_product(res.begin(), res.end(), res.begin(), 0.0)/(n - k);
+                                                        
+    arma::colvec std_err = arma::sqrt(s2 * arma::diagvec(arma::pinv(arma::trans(X)*X)));  
+
+    return List::create(Rcpp::Named("coefficients") = coef,
+                        Rcpp::Named("stderr")       = std_err,
+                        Rcpp::Named("df.residual")  = n - k);
   }'
   Rcpp::sourceCpp(code = code)
 
   # versions  which can handle rank-deficient cases.
   ## use arma::solve to solve linear equation which uses QR decomposition
-  exprs$arma_solve1 <- expression(.Call("RcppArmadillo_fastLm", PACKAGE = "RcppArmadillo", mm, y))
+  exprs$arma_solve1 <- expression(Armadillo_fastLm(mm, y))
+  #exprs$arma_solve1 <- expression(.Call("RcppArmadillo_fastLm", PACKAGE = "RcppArmadillo", mm, y))
   exprs$arma_solve2 <- expression(arma_fastLm_direct(mm, y))
   ## use cholesky decomposition to solve linear equation
   exprs$arma_qr <- expression(arma_fastLm_qr(mm, y))

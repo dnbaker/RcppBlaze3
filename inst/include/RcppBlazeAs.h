@@ -22,6 +22,8 @@
 
 #ifndef RcppBlaze__RcppBlazeAs__h
 #define RcppBlaze__RcppBlazeAs__h
+#include "blaze/Util.h"
+#include "blaze/Math.h"
 
 // most code are modified from the Exporter class definition in Rcpp / RcppArmadillo / RcppEigen
 namespace Rcpp {

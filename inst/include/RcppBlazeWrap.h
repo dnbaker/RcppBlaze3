@@ -38,7 +38,7 @@ namespace Rcpp {
       typedef typename MT::ResultType     RT;
       typedef typename MT::ReturnType     RN;
       typedef typename MT::CompositeType  CT;
-      typedef typename blaze::If< blaze::IsExpression<RN>, const RT, CT >::Type  Tmp;
+      typedef typename blaze::If_t< blaze::IsExpression<RN>::value, const RT, CT >  Tmp;
       Tmp A( ~dm );  // Evaluation of the dense matrix operand
 
       const int RTYPE = ::Rcpp::traits::r_sexptype_traits< ET >::rtype;
@@ -68,7 +68,7 @@ namespace Rcpp {
       typedef typename MT::ResultType     RT;
       typedef typename MT::ReturnType     RN;
       typedef typename MT::CompositeType  CT;
-      typedef typename blaze::If< blaze::IsExpression<RN>, const RT, CT >::Type  Tmp;
+      typedef typename blaze::If_t< blaze::IsExpression<RN>::value, const RT, CT > Tmp;
       Tmp A( ~dm );  // Evaluation of the dense matrix operand
 
       const int RTYPE = ::Rcpp::traits::r_sexptype_traits< ET >::rtype;
@@ -145,7 +145,7 @@ namespace Rcpp {
       typedef typename MT::ResultType     RT;
       typedef typename MT::ReturnType     RN;
       typedef typename MT::CompositeType  CT;
-      typedef typename blaze::If< blaze::IsExpression<RN>, const RT, CT >::Type  Tmp;
+      typedef typename blaze::If_t< blaze::IsExpression<RN>::value, const RT, CT >  Tmp;
       typedef typename blaze::RemoveReference<Tmp>::Type::ConstIterator   ConstIterator;
 
       Tmp A( ~sm );  // Evaluation of the sparse matrix operand
@@ -280,7 +280,7 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( dv ) ;
   };
 
-  template< typename Type, bool AF, bool PF, bool TF >
+  template< typename Type, blaze::AlignmentFlag AF, blaze::PaddingFlag PF, bool TF >
   SEXP wrap( const blaze::CustomVector<Type,AF,PF,TF>& cv ){
     return RcppBlaze::blaze_wrap( cv ) ;
   };
@@ -305,7 +305,7 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( dm ) ;
   };
 
-  template< typename Type, bool AF, bool PF, bool SO >
+  template< typename Type, blaze::AlignmentFlag AF, blaze::PaddingFlag PF, bool SO >
   SEXP wrap( const blaze::CustomMatrix<Type,AF,PF,SO>& cm ){
     return RcppBlaze::blaze_wrap( cm ) ;
   };
@@ -325,12 +325,12 @@ namespace Rcpp {
     return RcppBlaze::blaze_wrap( dr ) ;
   };
 
-  template< typename MT, bool SO, bool SF >
+  template< typename MT, blaze::AlignmentFlag SO, bool SF >
   SEXP wrap( const blaze::Submatrix<MT,SO,SF>& dsm ){
     return RcppBlaze::blaze_wrap( dsm ) ;
   };
 
-  template< typename MT, bool SO, bool SF >
+  template< typename MT, blaze::AlignmentFlag SO, bool SF >
   SEXP wrap( const blaze::Subvector<MT,SO,SF>& dsv ){
     return RcppBlaze::blaze_wrap( dsv ) ;
   };
