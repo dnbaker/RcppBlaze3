@@ -1,3 +1,4 @@
 [submodule "inst/include/blaze"]
 	path = inst/include/blaze
 	url = https://bitbucket.org/blaze-lib/blaze.git
+
