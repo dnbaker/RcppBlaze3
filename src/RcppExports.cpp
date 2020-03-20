@@ -3,6 +3,7 @@
 
 #include "../inst/include/RcppBlaze3.h"
 #include <Rcpp.h>
+#include "../extern/fgc/code/include/fgc/jsd.h"
 
 using namespace Rcpp;
 

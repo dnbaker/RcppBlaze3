@@ -84,6 +84,7 @@ namespace Rcpp {
       }
     };
 
+#if 0
     // Provides only blaze::CustomVector<Type,blaze::unaligned,blaze::unpadded,TF> export
     template< typename Type, bool TF >
     class Exporter< blaze::CustomVector<Type,blaze::unaligned,blaze::unpadded,TF> > {
@@ -152,6 +153,7 @@ namespace Rcpp {
         return result;
       }
     };
+#endif
 
     // Provides only blaze::CompressedVector<Type,blaze::rowVector> export
     template< typename Type >
@@ -287,6 +289,7 @@ namespace Rcpp {
       }
     };
 
+#if 0
     // Provides only blaze::CustomMatrix<Type,blaze::unaligned, blaze::unpadded,SO> export
     template< typename Type, bool SO >
     class Exporter< blaze::CustomMatrix<Type,blaze::unaligned, blaze::unpadded,SO> > {
@@ -405,6 +408,7 @@ namespace Rcpp {
         }
       }
     };
+#endif
 
     // Provides only blaze::CompressedMatrix<Type,SO> export
     template< typename Type, bool SO >

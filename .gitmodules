@@ -2,3 +2,6 @@
 	path = inst/include/blaze
 	url = https://bitbucket.org/blaze-lib/blaze.git
 
+[submodule "extern/fgc"]
+	path = extern/fgc
+	url = https://github.com/dnbaker/fgc

@@ -57,14 +57,14 @@ namespace Rcpp {
   template< typename Type, size_t N, bool TF > SEXP wrap( const blaze::StaticVector<Type,N,TF>& );
   template< typename Type, size_t N, bool TF > SEXP wrap( const blaze::HybridVector<Type,N,TF>& );
   template< typename Type, bool TF > SEXP wrap( const blaze::DynamicVector<Type,TF>& );
-  template< typename Type, blaze::AlignmentFlag AF, blaze::PaddingFlag PF, bool TF > SEXP wrap( const blaze::CustomVector<Type,AF,PF,TF>& );
+  //template< typename Type, blaze::AlignmentFlag AF, blaze::PaddingFlag PF, bool TF > SEXP wrap( const blaze::CustomVector<Type,AF,PF,TF>& );
   template< typename Type, bool TF > SEXP wrap( const blaze::CompressedVector<Type,TF>& );
 
   template< typename Type, size_t M, size_t N, bool SO > SEXP wrap( const blaze::StaticMatrix<Type,M,N,SO>& );
   template< typename Type, size_t M, size_t N, bool SO > SEXP wrap( const blaze::HybridMatrix<Type,M,N,SO>& );
   template< typename Type, bool SO > SEXP wrap( const blaze::DynamicMatrix<Type,SO>& );
   template< typename Type, bool SO > SEXP wrap( const blaze::DynamicMatrix<Type,SO>& );
-  template< typename Type, blaze::AlignmentFlag AF, blaze::PaddingFlag PF, bool SO > SEXP wrap( const blaze::CustomMatrix<Type,AF,PF,SO>& );
+  //template< typename Type, blaze::AlignmentFlag AF, blaze::PaddingFlag PF, bool SO > SEXP wrap( const blaze::CustomMatrix<Type,AF,PF,SO>& );
   template< typename Type, bool SO > SEXP wrap( const blaze::CompressedMatrix<Type,SO>& );
 
   template< typename MT, bool SO, bool DF > SEXP wrap( const blaze::DiagonalMatrix<MT,SO,DF>& );
@@ -88,20 +88,20 @@ namespace Rcpp {
   template< typename Type, bool TF > class Exporter< blaze::DynamicVector<Type,TF> >;
   template< typename Type, size_t N, bool TF > class Exporter< blaze::StaticVector<Type,N,TF> >;
   template< typename Type, size_t N, bool TF > class Exporter< blaze::HybridVector<Type,N,TF> >;
-  template< typename Type, bool TF > class Exporter< blaze::CustomVector<Type,blaze::unaligned,blaze::unpadded,TF> >;
-  template< typename Type, bool TF > class Exporter< blaze::CustomVector<Type,blaze::aligned,blaze::unpadded,TF> >;
-  template< typename Type, bool TF > class Exporter< blaze::CustomVector<Type,blaze::unaligned,blaze::padded,TF> >;
-  template< typename Type, bool TF > class Exporter< blaze::CustomVector<Type,blaze::aligned,blaze::padded,TF> >;
+  //template< typename Type, bool TF > class Exporter< blaze::CustomVector<Type,blaze::unaligned,blaze::unpadded,TF> >;
+  //template< typename Type, bool TF > class Exporter< blaze::CustomVector<Type,blaze::aligned,blaze::unpadded,TF> >;
+  //template< typename Type, bool TF > class Exporter< blaze::CustomVector<Type,blaze::unaligned,blaze::padded,TF> >;
+  //template< typename Type, bool TF > class Exporter< blaze::CustomVector<Type,blaze::aligned,blaze::padded,TF> >;
   template< typename Type > class Exporter< blaze::CompressedVector<Type,blaze::rowVector> >;
   template< typename Type > class Exporter< blaze::CompressedVector<Type,blaze::columnVector> >;
 
   template< typename Type, bool SO > class Exporter< blaze::DynamicMatrix<Type,SO> >;
   template< typename Type, size_t M, size_t N, bool SO > class Exporter< blaze::StaticMatrix<Type,M,N,SO> >;
   template< typename Type, size_t M, size_t N, bool SO > class Exporter< blaze::HybridMatrix<Type,M,N,SO> >;
-  template< typename Type, bool SO > class Exporter< blaze::CustomMatrix<Type,blaze::unaligned,blaze::unpadded,SO> >;
-  template< typename Type, bool SO > class Exporter< blaze::CustomMatrix<Type,blaze::aligned,blaze::unpadded,SO> >;
-  template< typename Type, bool SO > class Exporter< blaze::CustomMatrix<Type,blaze::unaligned,blaze::padded,SO> >;
-  template< typename Type, bool SO > class Exporter< blaze::CustomMatrix<Type,blaze::aligned,blaze::padded,SO> >;
+  //template< typename Type, bool SO > class Exporter< blaze::CustomMatrix<Type,blaze::unaligned,blaze::unpadded,SO> >;
+  //template< typename Type, bool SO > class Exporter< blaze::CustomMatrix<Type,blaze::aligned,blaze::unpadded,SO> >;
+  //template< typename Type, bool SO > class Exporter< blaze::CustomMatrix<Type,blaze::unaligned,blaze::padded,SO> >;
+  //template< typename Type, bool SO > class Exporter< blaze::CustomMatrix<Type,blaze::aligned,blaze::padded,SO> >;
   template< typename Type, bool SO > class Exporter< blaze::CompressedMatrix<Type,SO> >;
 
   } // namespace traits

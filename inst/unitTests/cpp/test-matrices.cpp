@@ -31,53 +31,6 @@ blaze::DynamicMatrix< std::complex<double> > test_DynamicMatrix_cpl( blaze::Dyna
   return x;
 }
 
-// [[Rcpp::export]]
-blaze::CustomMatrix< double, blaze::unaligned, blaze::unpadded >
-  test_CustomMatrix1_dbl( blaze::CustomMatrix< double, blaze::unaligned, blaze::unpadded > x ) {
-    return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomMatrix< double, blaze::aligned, blaze::unpadded >
-  test_CustomMatrix2_dbl( blaze::CustomMatrix< double, blaze::aligned, blaze::unpadded > x ) {
-    return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomMatrix< double, blaze::unaligned, blaze::padded >
-  test_CustomMatrix3_dbl( blaze::CustomMatrix< double, blaze::unaligned, blaze::padded > x ) {
-    return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomMatrix< double, blaze::aligned, blaze::padded >
-  test_CustomMatrix4_dbl( blaze::CustomMatrix< double, blaze::aligned, blaze::padded > x ) {
-    return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomMatrix< std::complex<double>, blaze::unaligned, blaze::unpadded >
-  test_CustomMatrix1_cpl( blaze::CustomMatrix< std::complex<double>, blaze::unaligned, blaze::unpadded > x ) {
-    return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomMatrix< std::complex<double>, blaze::aligned, blaze::unpadded >
-  test_CustomMatrix2_cpl( blaze::CustomMatrix< std::complex<double>, blaze::aligned, blaze::unpadded > x ) {
-    return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomMatrix< std::complex<double>, blaze::unaligned, blaze::padded >
-  test_CustomMatrix3_cpl( blaze::CustomMatrix< std::complex<double>, blaze::unaligned, blaze::padded > x ) {
-    return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomMatrix< std::complex<double>, blaze::aligned, blaze::padded >
-  test_CustomMatrix4_cpl( blaze::CustomMatrix< std::complex<double>, blaze::aligned, blaze::padded > x ) {
-    return x;
-}
 
 // [[Rcpp::export]]
 blaze::CompressedMatrix<double> test_CompressedMatrix_dbl_dgC(blaze::CompressedMatrix<double> x) {

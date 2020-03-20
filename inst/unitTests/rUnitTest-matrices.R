@@ -14,6 +14,7 @@
 ##
 ## You should have received a copy of the GNU General Public License
 ## along with RcppBlaze  If not, see <http://www.gnu.org/licenses/>.
+require(Rcpp)
 
 cppFile <- "test-matrices.cpp"
 if (file.exists(file.path("cpp", cppFile))) {
@@ -34,15 +35,6 @@ testMatrices <- function(){
   checkEquals(z, test_HybridMatrix_cpl_dim44(z), msg = "wrap/as complex HybridMatrix")
   checkEquals(x, test_DynamicMatrix_dbl(x), msg = "wrap/as double DynamicMatrix")
   checkEquals(z, test_DynamicMatrix_cpl(z), msg = "wrap/as complex DynamicMatrix")
-
-  checkEquals(x, test_CustomMatrix1_dbl(x), msg = "wrap/as double CustomMatrix type 1")
-  checkEquals(x, test_CustomMatrix2_dbl(x), msg = "wrap/as double CustomMatrix type 2")
-  checkEquals(x, test_CustomMatrix3_dbl(x), msg = "wrap/as double CustomMatrix type 3")
-  checkEquals(x, test_CustomMatrix4_dbl(x), msg = "wrap/as double CustomMatrix type 4")
-  checkEquals(z, test_CustomMatrix1_cpl(z), msg = "wrap/as complex CustomMatrix type 1")
-  checkEquals(z, test_CustomMatrix2_cpl(z), msg = "wrap/as complex CustomMatrix type 2")
-  checkEquals(z, test_CustomMatrix3_cpl(z), msg = "wrap/as complex CustomMatrix type 3")
-  checkEquals(z, test_CustomMatrix4_cpl(z), msg = "wrap/as complex CustomMatrix type 4")
 
   checkEquals(x_sp_dgC, test_CompressedMatrix_dbl_dgC(x_sp_dgC), msg = "wrap/as column-major CompressedMatrix")
   checkEquals(x_sp_dgR, test_CompressedMatrix_dbl_dgR(x_sp_dgC), msg = "wrap/as row-major CompressedMatrix")

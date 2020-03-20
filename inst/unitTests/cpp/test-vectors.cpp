@@ -31,53 +31,6 @@ blaze::DynamicVector< std::complex<double> > test_DynamicVector_cpl( blaze::Dyna
     return x;
 }
 
-// [[Rcpp::export]]
-blaze::CustomVector< double, blaze::unaligned, blaze::unpadded >
-  test_CustomVector1_dbl( blaze::CustomVector< double, blaze::unaligned, blaze::unpadded > x ) {
-  return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomVector< double, blaze::aligned, blaze::unpadded >
-  test_CustomVector2_dbl( blaze::CustomVector< double, blaze::aligned, blaze::unpadded > x ) {
-  return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomVector< double, blaze::unaligned, blaze::padded >
-  test_CustomVector3_dbl( blaze::CustomVector< double, blaze::unaligned, blaze::padded > x ) {
-  return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomVector< double, blaze::aligned, blaze::padded >
-  test_CustomVector4_dbl( blaze::CustomVector< double, blaze::aligned, blaze::padded > x ) {
-  return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomVector< std::complex<double>, blaze::unaligned, blaze::unpadded >
-  test_CustomVector1_cpl( blaze::CustomVector< std::complex<double>, blaze::unaligned, blaze::unpadded > x ) {
-    return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomVector< std::complex<double>, blaze::aligned, blaze::unpadded >
-  test_CustomVector2_cpl( blaze::CustomVector< std::complex<double>, blaze::aligned, blaze::unpadded > x ) {
-    return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomVector< std::complex<double>, blaze::unaligned, blaze::padded >
-  test_CustomVector3_cpl( blaze::CustomVector< std::complex<double>, blaze::unaligned, blaze::padded > x ) {
-    return x;
-}
-
-// [[Rcpp::export]]
-blaze::CustomVector< std::complex<double>, blaze::aligned, blaze::padded >
-  test_CustomVector4_cpl( blaze::CustomVector< std::complex<double>, blaze::aligned, blaze::padded > x ) {
-    return x;
-}
 
 // [[Rcpp::export]]
 blaze::CompressedVector<double> test_CompressedVector_dbl_col( blaze::CompressedVector<double> x ) {

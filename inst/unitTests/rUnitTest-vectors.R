@@ -14,6 +14,7 @@
 ##
 ## You should have received a copy of the GNU General Public License
 ## along with RcppBlaze  If not, see <http://www.gnu.org/licenses/>.
+require("Rcpp")
 
 cppFile <- "test-vectors.cpp"
 if (file.exists(file.path("cpp", cppFile))) {
@@ -35,14 +36,14 @@ testVectors <- function(){
   checkEquals(x, test_DynamicVector_dbl(x), msg = "wrap/as double DynamicVector")
   checkEquals(z, test_DynamicVector_cpl(z), msg = "wrap/as complex DynamicVector")
 
-  checkEquals(x, test_CustomVector1_dbl(x), msg = "wrap/as double CustomVector type 1")
-  checkEquals(x, test_CustomVector2_dbl(x), msg = "wrap/as double CustomVector type 2")
-  checkEquals(x, test_CustomVector3_dbl(x), msg = "wrap/as double CustomVector type 3")
-  checkEquals(x, test_CustomVector4_dbl(x), msg = "wrap/as double CustomVector type 4")
-  checkEquals(z, test_CustomVector1_cpl(z), msg = "wrap/as complex CustomVector type 1")
-  checkEquals(z, test_CustomVector2_cpl(z), msg = "wrap/as complex CustomVector type 2")
-  checkEquals(z, test_CustomVector3_cpl(z), msg = "wrap/as complex CustomVector type 3")
-  checkEquals(z, test_CustomVector4_cpl(z), msg = "wrap/as complex CustomVector type 4")
+#  checkEquals(x, test_CustomVector1_dbl(x), msg = "wrap/as double CustomVector type 1")
+#  checkEquals(x, test_CustomVector2_dbl(x), msg = "wrap/as double CustomVector type 2")
+#  checkEquals(x, test_CustomVector3_dbl(x), msg = "wrap/as double CustomVector type 3")
+#  checkEquals(x, test_CustomVector4_dbl(x), msg = "wrap/as double CustomVector type 4")
+#  checkEquals(z, test_CustomVector1_cpl(z), msg = "wrap/as complex CustomVector type 1")
+#  checkEquals(z, test_CustomVector2_cpl(z), msg = "wrap/as complex CustomVector type 2")
+#  checkEquals(z, test_CustomVector3_cpl(z), msg = "wrap/as complex CustomVector type 3")
+#  checkEquals(z, test_CustomVector4_cpl(z), msg = "wrap/as complex CustomVector type 4")
 
   checkEquals(sv_col, test_CompressedVector_dbl_col(sv_col), msg = "wrap/as column CompressedVector")
   checkEquals(sv_row, test_CompressedVector_dbl_row(sv_row), msg = "wrap/as row CompressedVector")
