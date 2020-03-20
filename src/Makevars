@@ -1,4 +1,7 @@
 
-CXX_STD=CXX14
-PKG_CXXFLAGS=-I../inst/include -I../inst/include/blaze/blaze $(SHLIB_OPENMP_CXXFLAGS) -DBLAZE_BLAS_MODE=1 -I../extern/fgc/code -I../extern/fgc/code/fgc -I../extern/fgc/code -I../extern/fgc/sleef/build/include
-PKG_LIBS=$(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS) $(SHLIB_OPENMP_CXXFLAGS) -L../extern/fgc/code/sleef/build/lib -lsleef
+CXX_STD=CXX17
+PKG_CXXFLAGS=-I../inst/include -I../inst/include/blaze/blaze -I../inst/include/blaze \
+    $(SHLIB_OPENMP_CXXFLAGS) -DBLAZE_BLAS_MODE=1 \
+    -I../extern/fgc/code -I../extern/fgc/code/include  -I../extern/fgc/sleef/build/include -BLAZE_SLEEF_MODE=1 \
+    -I../extern/fgc/code/aesctr -L$(SLEEF_DIR)/lib -lsleef
+PKG_LIBS=$(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS) $(SHLIB_OPENMP_CXXFLAGS) -L$(SLEEF_DIR)/lib -lsleef
